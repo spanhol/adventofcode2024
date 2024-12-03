@@ -1,11 +1,19 @@
 package dev.spanhol;
 
 import dev.spanhol.one.One;
+import dev.spanhol.three.Three;
+import dev.spanhol.two.Two;
 
 public class Main {
     public static void main(String[] args) {
         One one = new One();
         one.part1();
         one.part2();
+        Two two = new Two();
+        two.part1();
+        two.part2();
+        Three three = new Three();
+        three.part1();
+        three.part2();
     }
 }

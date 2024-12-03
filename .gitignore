@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+/.idea/
 .idea
 .idea/aws.xml
 .idea/encodings.xml
@@ -14,4 +15,3 @@ target/
 *.iws
 *.iml
 *.ipr
-
