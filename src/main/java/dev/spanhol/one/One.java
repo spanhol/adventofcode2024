@@ -1030,6 +1030,7 @@ public class One {
             }
             totalDistance += dif;
         }
+        System.out.println("Day one Part 1 total");
         System.out.println(totalDistance);
     }
 
@@ -1059,6 +1060,7 @@ public class One {
                 total = total.add(number);
             }
         }
+        System.out.println("Day one Part 2 total");
         System.out.println(total);
     }
 }

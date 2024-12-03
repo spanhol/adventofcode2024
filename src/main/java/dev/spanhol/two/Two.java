@@ -1057,6 +1057,7 @@ public class Two {
                 lastLevel = currentLevel;
             }
         }
+        System.out.println("Day two Part 1 total");
         System.out.println(safeReports);
     }
 
@@ -1132,6 +1133,7 @@ public class Two {
                 lastLevel = currentLevel;
             }
         }
+        System.out.println("Day two Part 2 total");
         System.out.println(safeReports);
     }
 }

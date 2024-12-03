@@ -70,7 +70,7 @@ public class Three {
             }
         }
 
-        System.out.println("Part 1 total");
+        System.out.println("Day three part 1 total");
         System.out.println(totalSum);
 
     }
@@ -144,7 +144,7 @@ public class Three {
             }
         }
 
-        System.out.println("Part 2 total");
+        System.out.println("Day three Part 2 total");
         System.out.println(totalSum);
     }
 }
