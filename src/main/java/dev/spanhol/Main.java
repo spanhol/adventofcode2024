@@ -1,5 +1,6 @@
 package dev.spanhol;
 
+import dev.spanhol.Five.Five;
 import dev.spanhol.four.Four;
 import dev.spanhol.one.One;
 import dev.spanhol.three.Three;
@@ -19,5 +20,8 @@ public class Main {
         Four four = new Four();
         four.part1();
         four.part2();
+        Five five = new Five();
+        five.part1();
+        five.part2();
     }
 }
