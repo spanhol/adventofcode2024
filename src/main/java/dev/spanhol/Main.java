@@ -3,6 +3,7 @@ package dev.spanhol;
 import dev.spanhol.Five.Five;
 import dev.spanhol.four.Four;
 import dev.spanhol.one.One;
+import dev.spanhol.six.Six;
 import dev.spanhol.three.Three;
 import dev.spanhol.two.Two;
 
@@ -23,5 +24,8 @@ public class Main {
         Five five = new Five();
         five.part1();
         five.part2();
+//        Six six = new Six();
+//        six.part1();
+//        six.part2();
     }
 }

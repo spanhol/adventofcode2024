@@ -1478,6 +1478,7 @@ public class Five {
         for (Integer middlePage : middlePages) {
             sum += middlePage;
         }
+        System.out.println("Day five part 1 total");
         System.out.println(sum);
     }
 
@@ -1559,6 +1560,7 @@ public class Five {
         for (Integer middlePage : middlePages) {
             sum += middlePage;
         }
+        System.out.println("Day five part 2 total");
         System.out.println(sum);
     }
 
