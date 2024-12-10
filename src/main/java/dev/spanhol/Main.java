@@ -31,11 +31,11 @@ public class Main {
 //        six.part1();
 //        six.part2();
 //        Sev2en.part2();
-//        Nine nine = new Nine();
-//        nine.part1();
-//        nine.part2();
-        Ten ten = new Ten();
-        ten.part1();
-        ten.part2();
+        Nine nine = new Nine();
+        nine.part1();
+        nine.part2();
+//        Ten ten = new Ten();
+//        ten.part1();
+//        ten.part2();
     }
 }
