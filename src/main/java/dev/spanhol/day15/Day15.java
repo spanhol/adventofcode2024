@@ -1,5 +1,9 @@
 package dev.spanhol.day15;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class Day15 {
     String input = "##################################################\n" +
             "#OO...O#.O...#.........O....#.#...O............OO#\n" +
@@ -92,45 +96,92 @@ public class Day15 {
     }
 
     public void part1() {
+//        input = "##########\n" +
+//                "#..O..O.O#\n" +
+//                "#......O.#\n" +
+//                "#.OO..O.O#\n" +
+//                "#..O@..O.#\n" +
+//                "#O#..O...#\n" +
+//                "#O..O..O.#\n" +
+//                "#.OO.O.OO#\n" +
+//                "#....O...#\n" +
+//                "##########\n" +
+//                "\n" +
+//                "<vv>^<v^>v>^vv^v>v<>v^v<v<^vv<<<^><<><>>v<vvv<>^v^>^<<<><<v<<<v^vv^v>^\n" +
+//                "vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v\n" +
+//                "><>vv>v^v^<>><>>>><^^>vv>v<^^^>>v^v^<^^>v^^>v^<^v>v<>>v^v^<v>v^^<^^vv<\n" +
+//                "<<v<^>>^^^^>>>v^<>vvv^><v<<<>^^^vv^<vvv>^>v<^^^^v<>^>vvvv><>>v^<<^^^^^\n" +
+//                "^><^><>>><>^^<<^^v>>><^<v>^<vv>>v>>>^v><>^v><<<<v>>v<v<v>vvv>^<><<>^><\n" +
+//                "^>><>^v<><^vvv<^^<><v<<<<<><^v<<<><<<^^<v<^^^><^>>^<v^><<<^>>^v<v^v<v^\n" +
+//                ">^>>^v>vv>^<<^v<>><<><<v<<v><>v<^vv<<<>^^v^>^^>>><<^v>>v^v><^^>>^<>vv^\n" +
+//                "<><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>\n" +
+//                "^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>\n" +
+//                "v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
         read(false);
-//        System.out.println(map.toString());
+        System.out.println(map.toString());
         for (int i = 0; i < commands.length(); i++) {
             map.moveRobot(commands.charAt(i));
-//            System.out.println("Move " + commands.charAt(i));
-//            System.out.println(map.toString());
+            System.out.println(i + " Move " + commands.charAt(i));
+            System.out.println(map.toString());
         }
         System.out.println(map.getGPSValue());
     }
 
-    public void part2() {
-        input = "##########\n" +
-                "#..O..O.O#\n" +
-                "#......O.#\n" +
-                "#.OO..O.O#\n" +
-                "#..O@..O.#\n" +
-                "#O#..O...#\n" +
-                "#O..O..O.#\n" +
-                "#.OO.O.OO#\n" +
-                "#....O...#\n" +
-                "##########\n" +
-                "\n" +
-                "<vv>^<v^>v>^vv^v>v<>v^v<v<^vv<<<^><<><>>v<vvv<>^v^>^<<<><<v<<<v^vv^v>^\n" +
-                "vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v\n" +
-                "><>vv>v^v^<>><>>>><^^>vv>v<^^^>>v^v^<^^>v^^>v^<^v>v<>>v^v^<v>v^^<^^vv<\n" +
-                "<<v<^>>^^^^>>>v^<>vvv^><v<<<>^^^vv^<vvv>^>v<^^^^v<>^>vvvv><>>v^<<^^^^^\n" +
-                "^><^><>>><>^^<<^^v>>><^<v>^<vv>>v>>>^v><>^v><<<<v>>v<v<v>vvv>^<><<>^><\n" +
-                "^>><>^v<><^vvv<^^<><v<<<<<><^v<<<><<<^^<v<^^^><^>>^<v^><<<^>>^v<v^v<v^\n" +
-                ">^>>^v>vv>^<<^v<>><<><<v<<v><>v<^vv<<<>^^v^>^^>>><<^v>>v^v><^^>>^<>vv^\n" +
-                "<><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>\n" +
-                "^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>\n" +
-                "v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
+    public void part2() throws IOException {
+//        input = "##########\n" +
+//                "#..O..O.O#\n" +
+//                "#......O.#\n" +
+//                "#.OO..O.O#\n" +
+//                "#..O@..O.#\n" +
+//                "#O#..O...#\n" +
+//                "#O..O..O.#\n" +
+//                "#.OO.O.OO#\n" +
+//                "#....O...#\n" +
+//                "##########\n" +
+//                "\n" +
+//                "<vv>^<v^>v>^vv^v>v<>v^v<v<^vv<<<^><<><>>v<vvv<>^v^>^<<<><<v<<<v^vv^v>^\n" +
+//                "vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v\n" +
+//                "><>vv>v^v^<>><>>>><^^>vv>v<^^^>>v^v^<^^>v^^>v^<^v>v<>>v^v^<v>v^^<^^vv<\n" +
+//                "<<v<^>>^^^^>>>v^<>vvv^><v<<<>^^^vv^<vvv>^>v<^^^^v<>^>vvvv><>>v^<<^^^^^\n" +
+//                "^><^><>>><>^^<<^^v>>><^<v>^<vv>>v>>>^v><>^v><<<<v>>v<v<v>vvv>^<><<>^><\n" +
+//                "^>><>^v<><^vvv<^^<><v<<<<<><^v<<<><<<^^<v<^^^><^>>^<v^><<<^>>^v<v^v<v^\n" +
+//                ">^>>^v>vv>^<<^v<>><<><<v<<v><>v<^vv<<<>^^v^>^^>>><<^v>>v^v><^^>>^<>vv^\n" +
+//                "<><^^>^^^<><vvvvv^v<v<<>^v<v>v<<^><<><<><<<^^<<<^<<>><<><^^^>^^<>^>v<>\n" +
+//                "^^>vv<^v^v<vv>^<><v<^v>^^^>>>^^vvv^>vvv<>>>^<^>>>>>^<<^v>^vvv<>^<><<v>\n" +
+//                "v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
+
+//        input = "#######\n" +
+//                "#...#.#\n" +
+//                "#.....#\n" +
+//                "#..OO@#\n" +
+//                "#..O..#\n" +
+//                "#.....#\n" +
+//                "#######\n" +
+//                "\n" +
+//                "<vv<<^^<<^^";
         read(true);
-        System.out.println(map.toString());
-//        for (int i = 0; i < commands.length(); i++) {
-//            map.moveRobot(commands.charAt(i));
-//            System.out.println("Move " + commands.charAt(i));
+
+        File out = new File("out.txt");
+        out.createNewFile();
+        FileOutputStream fos = new FileOutputStream(out);
+
+//        System.out.println(map.toString());
+        fos.write((map.toString() + "\n").getBytes());
+        for (int i = 0; i < commands.length(); i++) {
+            if (i == 1972){
+                System.out.println();
+            }
+            char c = commands.charAt(i);
+            if (map.verifyMoveRobot(c)) {
+                map.moveRobot(c);
+            }
+//            System.out.println(i + " Move " + c);
+            fos.write((i + " Move " + c + "\n").getBytes());
 //            System.out.println(map.toString());
-//        }
-//        System.out.println(map.getGPSValue());
+            fos.write((map.toString() + "\n").getBytes());
+        }
+        System.out.println(map.getGPSValue());
+
+        fos.close();
     }
 }

@@ -8,6 +8,8 @@ public class Point {
     Point down;
     Point left;
     boolean box;
+    boolean bigBoxleft;
+    boolean bigBoxRight;
     boolean wall;
     boolean robot;
     boolean free;
@@ -19,6 +21,10 @@ public class Point {
             wall = true;
         } else if (c == 'O') {
             box = true;
+        } else if (c == '[') {
+            bigBoxleft = true;
+        } else if (c == ']') {
+            bigBoxRight = true;
         } else if (c == '@') {
             robot = true;
         } else {
@@ -82,6 +88,12 @@ public class Point {
         if (box) {
             return 'O';
         }
+        if (bigBoxleft) {
+            return '[';
+        }
+        if (bigBoxRight) {
+            return ']';
+        }
         if (robot) {
             return '@';
         }
@@ -90,7 +102,7 @@ public class Point {
 
     public int getGPSValue() {
         int gps = 0;
-        if (box) {
+        if (box || bigBoxleft) {
             gps = y * 100 + x;
         }
         return gps;

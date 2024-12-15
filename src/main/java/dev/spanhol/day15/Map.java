@@ -17,9 +17,13 @@ public class Map {
         } else {
             width = lines[0].length();
         }
+        int transformedWidth = width;
+        if (large) {
+            transformedWidth = width / 2;
+        }
         char[][] newMap = new char[width][height];
         for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width / 2; x++) {
+            for (int x = 0; x < transformedWidth; x++) {
                 char c = lines[y].charAt(x);
                 if (large) {
                     if (c == '@') {
@@ -70,45 +74,113 @@ public class Map {
         }
     }
 
-    public void moveRobot(char move) {
-        move(robot, move);
+    public boolean verifyMoveRobot(char move) {
+        return move(robot, move, false);
     }
 
-    public boolean move(Point here, char move) {
+    public void moveRobot(char move) {
+        move(robot, move, true);
+    }
+
+    public boolean move(Point here, char move, boolean doMove) {
         if (move == '>') {
-            if (here.getRight().free || (here.getRight().box && move(here.getRight(), move))) {
-                doMove(here, here.getRight());
-                return true;
-            }
-            if (here.getRight().wall) {
+            if (here.right.wall) {
                 return false;
+            }
+            if (here.right.free || move(here.right, move, doMove)) {
+                if (doMove) {
+                    doMove(here, here.right);
+                }
+                return true;
             }
         }
         if (move == '<') {
-            if (here.getLeft().free || (here.getLeft().box && move(here.getLeft(), move))) {
-                doMove(here, here.getLeft());
-                return true;
-            }
-            if (here.getLeft().wall) {
+            if (here.left.wall) {
                 return false;
+            }
+            if (here.left.free || move(here.left, move, doMove)) {
+                if (doMove) {
+                    doMove(here, here.left);
+                }
+                return true;
             }
         }
         if (move == '^') {
-            if (here.getUp().free || (here.getUp().box && move(here.getUp(), move))) {
-                doMove(here, here.getUp());
-                return true;
-            }
-            if (here.getUp().wall) {
+            if (here.up.wall) {
                 return false;
+            }
+            if (here.bigBoxleft || here.bigBoxRight) {
+                if (here.bigBoxleft) {
+                    if (here.up.right.wall) {
+                        return false;
+                    }
+                    if ((here.up.free || move(here.up, move, doMove))
+                            && (here.up.right.free || move(here.up.right, move, doMove))) {
+                        if (doMove) {
+                            doMove(here, here.up);
+                            doMove(here.right, here.up.right);
+                        }
+                        return true;
+                    }
+                } else {
+                    if (here.up.left.wall) {
+                        return false;
+                    }
+                    if ((here.up.free || move(here.up, move, doMove))
+                            && (here.up.left.free || move(here.up.left, move, doMove))) {
+                        if (doMove) {
+                            doMove(here, here.up);
+                            doMove(here.left, here.up.left);
+                        }
+                        return true;
+                    }
+                }
+            } else {
+                if (here.up.free || (move(here.up, move, doMove))) {
+                    if (doMove) {
+                        doMove(here, here.up);
+                    }
+                    return true;
+                }
             }
         }
         if (move == 'v') {
-            if (here.getDown().free || (here.getDown().box && move(here.getDown(), move))) {
-                doMove(here, here.getDown());
-                return true;
-            }
-            if (here.getDown().wall) {
+            if (here.down.wall) {
                 return false;
+            }
+            if (here.bigBoxleft || here.bigBoxRight) {
+                if (here.bigBoxleft) {
+                    if (here.down.right.wall) {
+                        return false;
+                    }
+                    if ((here.down.free || move(here.down, move, doMove))
+                            && (here.down.right.free || move(here.down.right, move, doMove))) {
+                        if (doMove) {
+                            doMove(here, here.down);
+                            doMove(here.right, here.down.right);
+                        }
+                        return true;
+                    }
+                } else {
+                    if (here.down.left.wall) {
+                        return false;
+                    }
+                    if ((here.down.free || move(here.down, move, doMove))
+                            && (here.down.left.free || move(here.down.left, move, doMove))) {
+                        if (doMove) {
+                            doMove(here, here.down);
+                            doMove(here.left, here.down.left);
+                        }
+                        return true;
+                    }
+                }
+            } else {
+                if (here.down.free || (move(here.down, move, doMove))) {
+                    if (doMove) {
+                        doMove(here, here.down);
+                    }
+                    return true;
+                }
             }
         }
         return false;
@@ -117,14 +189,17 @@ public class Map {
     public void doMove(Point here, Point next) {
         next.free = false;
         next.box = here.box;
+        next.bigBoxleft = here.bigBoxleft;
+        next.bigBoxRight = here.bigBoxRight;
         next.robot = here.robot;
         if (next.robot) {
             robot = next;
         }
-        if (here.robot) {
-            here.robot = false;
-            here.free = true;
-        }
+        here.free = true;
+        here.robot = false;
+        here.box = false;
+        here.bigBoxleft = false;
+        here.bigBoxRight = false;
     }
 
     @Override
@@ -132,11 +207,7 @@ public class Map {
         StringBuilder sb = new StringBuilder();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                if (robot.x == x && robot.y == y) {
-                    sb.append(robot.value());
-                } else {
-                    sb.append(map[x][y].value());
-                }
+                sb.append(map[x][y].value());
             }
             sb.append("\n");
         }
