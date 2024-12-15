@@ -53,7 +53,7 @@ public class Main {
 //        day14.part1();
 //        day14.part2();  //visually on the file
         Day15 day15 = new Day15();
-//        day15.part1();
+        day15.part1();
         day15.part2();
     }
 }
