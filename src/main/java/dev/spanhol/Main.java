@@ -1,6 +1,8 @@
 package dev.spanhol;
 
 import dev.spanhol.Five.Five;
+import dev.spanhol.day14.Day14;
+import dev.spanhol.eight.Eight;
 import dev.spanhol.four.Four;
 import dev.spanhol.nine.Nine;
 import dev.spanhol.one.One;
@@ -10,8 +12,10 @@ import dev.spanhol.ten.Ten;
 import dev.spanhol.three.Three;
 import dev.spanhol.two.Two;
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 //        One one = new One();
 //        one.part1();
 //        one.part2();
@@ -31,11 +35,17 @@ public class Main {
 //        six.part1();
 //        six.part2();
 //        Sev2en.part2();
-        Nine nine = new Nine();
-        nine.part1();
-        nine.part2();
+//        Eight eight = new Eight();
+//        eight.part1();
+//        eight.part2();
+//        Nine nine = new Nine();
+//        nine.part1();
+//        nine.part2();
 //        Ten ten = new Ten();
 //        ten.part1();
 //        ten.part2();
+        Day14 day14 = new Day14();
+        day14.part1();
+        day14.part2();  //visually on the file
     }
 }
