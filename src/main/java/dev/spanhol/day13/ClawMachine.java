@@ -138,8 +138,6 @@ public class ClawMachine {
                 ", bY=" + bY +
                 ", prizeX=" + prizeX +
                 ", prizeY=" + prizeY +
-                ", aTokenCost=" + aTokenCost +
-                ", bTokenCost=" + bTokenCost +
                 '}';
     }
 }
