@@ -3,6 +3,7 @@ package dev.spanhol;
 import dev.spanhol.Five.Five;
 import dev.spanhol.day13.Day13;
 import dev.spanhol.day14.Day14;
+import dev.spanhol.day15.Day15;
 import dev.spanhol.eight.Eight;
 import dev.spanhol.four.Four;
 import dev.spanhol.nine.Nine;
@@ -45,11 +46,14 @@ public class Main {
 //        Ten ten = new Ten();
 //        ten.part1();
 //        ten.part2();
-        Day13 day13 = new Day13();
-        day13.part1();
-        day13.part2();  //visually on the file
+//        Day13 day13 = new Day13();
+//        day13.part1();
+//        day13.part2();
 //        Day14 day14 = new Day14();
 //        day14.part1();
 //        day14.part2();  //visually on the file
+        Day15 day15 = new Day15();
+//        day15.part1();
+        day15.part2();
     }
 }
