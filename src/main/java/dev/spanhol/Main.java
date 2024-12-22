@@ -1,23 +1,9 @@
 package dev.spanhol;
 
-import dev.spanhol.Five.Five;
-import dev.spanhol.day13.Day13;
-import dev.spanhol.day14.Day14;
-import dev.spanhol.day15.Day15;
-import dev.spanhol.eight.Eight;
-import dev.spanhol.four.Four;
-import dev.spanhol.nine.Nine;
-import dev.spanhol.one.One;
-import dev.spanhol.seven.Seven;
-import dev.spanhol.six.Six;
-import dev.spanhol.ten.Ten;
-import dev.spanhol.three.Three;
-import dev.spanhol.two.Two;
-
-import java.io.IOException;
+import dev.spanhol.day19.Day19;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 //        One one = new One();
 //        one.part1();
 //        one.part2();
@@ -52,8 +38,14 @@ public class Main {
 //        Day14 day14 = new Day14();
 //        day14.part1();
 //        day14.part2();  //visually on the file
-        Day15 day15 = new Day15();
-        day15.part1();
-        day15.part2();
+//        Day15 day15 = new Day15();
+//        day15.part1();
+//        day15.part2();
+//        Day16 day16 = new Day16();
+//        day16.part1();
+//        day16.part2();
+        Day19 day19 = new Day19();
+        day19.part1();
+        day19.part2();
     }
 }
