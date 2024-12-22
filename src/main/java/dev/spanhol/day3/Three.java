@@ -1,4 +1,4 @@
-package dev.spanhol.three;
+package dev.spanhol.day3;
 
 import java.math.BigDecimal;
 import java.util.regex.Pattern;

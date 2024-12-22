@@ -1,4 +1,4 @@
-package dev.spanhol.two;
+package dev.spanhol.day2;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package dev.spanhol.nine;
+package dev.spanhol.day9;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,7 +14,6 @@ public class Nine {
         sections = new ArrayList<>();
         compact = new ArrayList<>();
         originalDisk = new int[input.length()];
-
     }
 
     public void part1() {

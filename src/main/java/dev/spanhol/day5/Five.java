@@ -1,4 +1,4 @@
-package dev.spanhol.Five;
+package dev.spanhol.day5;
 
 import java.util.ArrayList;
 import java.util.HashMap;

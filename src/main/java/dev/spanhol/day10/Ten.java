@@ -1,4 +1,4 @@
-package dev.spanhol.ten;
+package dev.spanhol.day10;
 
 public class Ten {
     String input = "01210565345898676589898782365821232102010123017876\n" +

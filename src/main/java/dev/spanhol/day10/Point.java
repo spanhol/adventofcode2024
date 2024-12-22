@@ -1,4 +1,4 @@
-package dev.spanhol.ten;
+package dev.spanhol.day10;
 
 public class Point {
     int x;
