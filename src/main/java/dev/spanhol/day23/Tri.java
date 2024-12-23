@@ -40,9 +40,9 @@ public class Tri {
         StringBuilder code = new StringBuilder();
         computers.sort(Comparator.comparing(o -> o.name));
         for (Computer o : computers) {
-            code.append(o.name).append(",");
+            code.append(o.name);
         }
-        return code.substring(0, code.length() - 1);
+        return code.toString();
     }
 
     @Override

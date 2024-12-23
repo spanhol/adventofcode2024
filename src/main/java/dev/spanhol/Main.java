@@ -52,7 +52,7 @@ public class Main {
 //        day19.part1();
 //        day19.part2();
         Day23 day23 = new Day23();
-        day23.part1();
-//        day23.part2();
+//        day23.part1();
+        day23.part2();
     }
 }
