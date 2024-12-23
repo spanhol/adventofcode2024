@@ -24,9 +24,9 @@ public class Main {
 //        Six six = new Six();
 //        six.part1();
 //        six.part2();
-//        Seven seven = new Seven();
+        Seven seven = new Seven();
 //        seven.part1();
-//        seven.part2();
+        seven.part2();
 //        Eight eight = new Eight();
 //        eight.part1();
 //        eight.part2();
@@ -51,8 +51,8 @@ public class Main {
 //        Day19 day19 = new Day19();
 //        day19.part1();
 //        day19.part2();
-        Day23 day23 = new Day23();
+//        Day23 day23 = new Day23();
 //        day23.part1();
-        day23.part2();
+//        day23.part2();
     }
 }

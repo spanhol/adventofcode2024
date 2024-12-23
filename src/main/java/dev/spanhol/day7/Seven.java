@@ -886,14 +886,11 @@ public class Seven {
     }
 
     public void part2() {
-        input = "156: 15 6\n" +
-                "7290: 6 8 6 15\n" +
-                "192: 17 8 14";
         read();
         BigInteger sum = BigInteger.ZERO;
         for (Equation equation : equations) {
             System.out.println(equation);
-            if (equation.solvable()) {
+            if (equation.solvable2()) {
                 sum = sum.add(equation.total);
             }
         }
