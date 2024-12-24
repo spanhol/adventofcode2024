@@ -1,8 +1,6 @@
 package dev.spanhol;
 
-import dev.spanhol.day19.Day19;
-import dev.spanhol.day23.Day23;
-import dev.spanhol.day7.Seven;
+import dev.spanhol.day16.Day16;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,9 +22,9 @@ public class Main {
 //        Six six = new Six();
 //        six.part1();
 //        six.part2();
-        Seven seven = new Seven();
+//        Seven seven = new Seven();
 //        seven.part1();
-        seven.part2();
+//        seven.part2();
 //        Eight eight = new Eight();
 //        eight.part1();
 //        eight.part2();
@@ -45,9 +43,9 @@ public class Main {
 //        Day15 day15 = new Day15();
 //        day15.part1();
 //        day15.part2();
-//        Day16 day16 = new Day16();
-//        day16.part1();
-//        day16.part2();
+        Day16 day16 = new Day16();
+        day16.part1();
+        day16.part2();
 //        Day19 day19 = new Day19();
 //        day19.part1();
 //        day19.part2();
