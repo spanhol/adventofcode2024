@@ -65,7 +65,6 @@ public class Map {
 
     public void astar() {
         this.start.bestPathCost = 0;
-        this.start.cost = 0;
         Point bestPoint = this.start;
 
         List<Point> knownPoints = new ArrayList<>();
@@ -85,11 +84,11 @@ public class Map {
                     bestPoint = p;
                 }
             }
-            if (bestPoint.direction != bestPoint.cameFrom.direction) {
-                System.out.println(this);
-                System.out.println();
+//            if (bestPoint.direction != bestPoint.cameFrom.direction) {
+            System.out.println(this);
+            System.out.println();
 //                System.out.println(knownPoints);
-            }
+//            }
             System.out.println("Visiting: " + bestPoint);
             System.out.println("\n");
         }
@@ -102,6 +101,8 @@ public class Map {
             System.out.println("prev: " + prev);
         }
         System.out.println(finalPathToString());
+        System.out.println();
+        System.out.println(end.bestPathCost);
     }
 
     public void addKnowPoints(Point current, List<Point> knownPoints) {
@@ -117,20 +118,46 @@ public class Map {
             if (!target.visited) {
                 knownPoints.add(target);
             }
-            int cost = 1 + current.bestPathCost;
+            int cost = 1;
             if (current.direction != direction) {
-                cost = 1001 + current.bestPathCost;
+                cost = 1001;
+            }
+            if (current.cameFrom != null) {
+                cost = calcPathCost(current, direction);
             }
             if (cost < target.bestPathCost) {
-                if (current.direction != direction) {
-                    target.cost = 1001;
-                }
                 target.direction = direction;
                 target.bestPathCost = cost;
                 target.cameFrom = current;
-//                System.out.println("calculated: " + target);
+                System.out.println("target: " + target);
             }
         }
+    }
+
+    public int calcPathCost(Point current, int direction) {
+        int cost = 1;
+        if (current.direction != direction) {
+            cost = 1001;
+        }
+        Point prev = current;
+        while (prev != null) {
+            if (prev.cameFrom != null) {
+                if (prev.direction != prev.cameFrom.direction) {
+                    cost += 1001;
+                } else {
+                    cost += 1;
+                }
+            }
+//            if (prev.cameFrom == null) {
+//                if (prev.direction != direction) {
+//                    cost += 1001;
+//                } else {
+//                cost += 1;
+//                }
+//            }
+            prev = prev.cameFrom;
+        }
+        return cost;
     }
 
     public int estimatedCost(Point current) {
@@ -162,6 +189,13 @@ public class Map {
     public String finalPathToString() {
         StringBuilder sb = new StringBuilder();
         for (int y = 0; y < height; y++) {
+            if (y < 100) {
+                sb.append('0');
+            }
+            if (y < 10) {
+                sb.append('0');
+            }
+            sb.append(y).append(" ");
             for (int x = 0; x < width; x++) {
                 var path = walk.get(map[x][y].getKey());
                 if (path != null) {

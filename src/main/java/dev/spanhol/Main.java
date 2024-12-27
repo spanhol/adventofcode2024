@@ -44,8 +44,8 @@ public class Main {
 //        Day15 day15 = new Day15();
 //        day15.part1();
 //        day15.part2();
-//        Day16 day16 = new Day16();
-//        day16.part1();
+        Day16 day16 = new Day16();
+        day16.part1();
 //        day16.part2();
 //        Day19 day19 = new Day19();
 //        day19.part1();
@@ -53,8 +53,8 @@ public class Main {
 //        Day23 day23 = new Day23();
 //        day23.part1();
 //        day23.part2();
-        Day25 day25 = new Day25();
-        day25.part1();
+//        Day25 day25 = new Day25();
+//        day25.part1();
 //        day25.part2();
     }
 }

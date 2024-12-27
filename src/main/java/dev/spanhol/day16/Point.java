@@ -10,10 +10,9 @@ public class Point {
     boolean wall;
     boolean start;
     boolean end;
-    Integer direction; //top, right, bottom, left -> 0,1,2,3
+    int direction; //top, right, bottom, left -> 0,1,2,3
     Point cameFrom;
     int bestPathCost;
-    int cost;
     boolean visited;
 
 
@@ -27,11 +26,10 @@ public class Point {
         } else if (c == 'E') {
             end = true;
         }
-        this.direction = null;
+        this.direction = -1;
         this.cameFrom = null;
         this.bestPathCost = Integer.MAX_VALUE;
         this.visited = false;
-        this.cost = 1;
     }
 
     public Point(int x, int y, Integer direction) {
@@ -90,7 +88,7 @@ public class Point {
         if (end) {
             return 'E';
         }
-        if (direction != null && !noDirection && visited) {
+        if (direction >= 0 && !noDirection && visited) {
             if (direction == 0) {
                 return '^';
             }
@@ -118,6 +116,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return x + "," + y + ":" + value(false) + " | " + cost + " / " + bestPathCost;
+        return x + "," + y + ":" + value(false) + " | " + bestPathCost;
     }
 }
